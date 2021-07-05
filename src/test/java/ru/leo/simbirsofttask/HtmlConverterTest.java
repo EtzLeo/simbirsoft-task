@@ -4,12 +4,10 @@ import jdk.jfr.Description;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import ru.leo.simbirsofttask.model.WordFrequency;
 import ru.leo.simbirsofttask.util.HtmlConverter;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class HtmlConverterTest {
 
@@ -37,5 +35,15 @@ public class HtmlConverterTest {
         statistic.put("HELLO", 2);
         statistic.put("WORLD", 1);
         Assertions.assertEquals(statistic, HtmlConverter.getWordsStatistic(html));
+    }
+
+    @Test
+    @Description("Тест преобразования словаря в класс WordFrequency")
+    public void testToWordFrequency() {
+        List<WordFrequency> wordFrequencies = Arrays.asList(
+                new WordFrequency("HELLO", 2),
+                new WordFrequency("WORLD", 1)
+        );
+        Assertions.assertEquals(wordFrequencies, HtmlConverter.toWordFrequency(html));
     }
 }

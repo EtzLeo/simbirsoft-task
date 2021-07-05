@@ -1,9 +1,16 @@
 package ru.leo.simbirsofttask.model;
 
+import java.util.Objects;
+
 /**
  * Частота встречаемости слова.
  */
 public class WordFrequency {
+
+    /**
+     * Идентификатор.
+     */
+    private int id;
 
     /**
      * Слово.
@@ -13,11 +20,16 @@ public class WordFrequency {
     /**
      * Частота встречаемости.
      */
-    private String frequency;
+    private int frequency;
 
-    public WordFrequency(String word, String frequency) {
+    public WordFrequency(String word, int frequency) {
         this.word = word;
         this.frequency = frequency;
+    }
+
+    public WordFrequency(int id, String word, int frequency) {
+        this(word, frequency);
+        this.id = id;
     }
 
     public String getWord() {
@@ -28,19 +40,38 @@ public class WordFrequency {
         this.word = word;
     }
 
-    public String getFrequency() {
+    public int getFrequency() {
         return frequency;
     }
 
-    public void setFrequency(String frequency) {
+    public void setFrequency(int frequency) {
         this.frequency = frequency;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        WordFrequency that = (WordFrequency) o;
+        return id == that.id && frequency == that.frequency && Objects.equals(word, that.word);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, word, frequency);
     }
 
     @Override
     public String toString() {
-        return "WordFrequency{" +
-                "word='" + word + '\'' +
-                ", frequency='" + frequency + '\'' +
-                '}';
+        return word + " - " + frequency;
     }
+
 }

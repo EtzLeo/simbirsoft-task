@@ -1,10 +1,9 @@
 package ru.leo.simbirsofttask.util;
 
 import org.jsoup.Jsoup;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import ru.leo.simbirsofttask.model.WordFrequency;
+
+import java.util.*;
 
 /**
  * Преобразователь html.
@@ -41,5 +40,20 @@ public class HtmlConverter {
             }
         }
         return wordsStatistic;
+    }
+
+    /**
+     * Преобразование словаря в список {@link WordFrequency}.
+     *
+     * @param html строка с html
+     * @return список объектов {@link WordFrequency}
+     */
+    public static List<WordFrequency> toWordFrequency(String html) {
+        List<WordFrequency> wordFrequencies = new ArrayList<>();
+        Map<String, Integer> statistics = getWordsStatistic(html);
+        for (Map.Entry<String, Integer> entry: statistics.entrySet()){
+            wordFrequencies.add(new WordFrequency(entry.getKey(), entry.getValue()));
+        }
+        return wordFrequencies;
     }
 }
