@@ -36,5 +36,4 @@ public class WordFrequencyService {
     public List<WordFrequency> getAll() {
         return repository.findAll();
     }
-
 }

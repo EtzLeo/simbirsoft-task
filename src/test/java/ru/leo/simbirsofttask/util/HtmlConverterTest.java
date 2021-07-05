@@ -1,4 +1,4 @@
-package ru.leo.simbirsofttask;
+package ru.leo.simbirsofttask.util;
 
 import jdk.jfr.Description;
 import org.junit.jupiter.api.Assertions;

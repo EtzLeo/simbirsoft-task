@@ -6,7 +6,6 @@ import ru.leo.simbirsofttask.repository.WordFrequencyRepository;
 import ru.leo.simbirsofttask.service.WordFrequencyService;
 import ru.leo.simbirsofttask.util.ContentExtraction;
 import ru.leo.simbirsofttask.util.HtmlConverter;
-import com.google.common.net.InternetDomainName;
 
 import java.io.IOException;
 import java.util.List;
@@ -20,6 +19,9 @@ public class App {
         List<WordFrequency> wordFrequencies = HtmlConverter.toWordFrequency(content);
 
         DataSourceProvider dataSourceProvider = new DataSourceProvider();
+
+        //для https://www.simbirsoft.com/ инициализация таблицы с именем word_stat_of_simbirsoftcom
+        //для каждого сайта в бд создается своя таблица
         WordFrequencyRepository repository =
                 new WordFrequencyRepository(
                         dataSourceProvider.getDataSource(),
@@ -29,8 +31,8 @@ public class App {
                                         ""));
 
         WordFrequencyService service = new WordFrequencyService(repository);
-
-        if (service.getAll() == null) {
+        
+        if (service.getAll() != null) {
             wordFrequencies.forEach(service::insert);
         }
         service.getAll().forEach(System.out::println);

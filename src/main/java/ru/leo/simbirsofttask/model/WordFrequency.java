@@ -61,12 +61,12 @@ public class WordFrequency {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         WordFrequency that = (WordFrequency) o;
-        return id == that.id && frequency == that.frequency && Objects.equals(word, that.word);
+        return frequency == that.frequency && Objects.equals(word, that.word);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, word, frequency);
+        return Objects.hash(word, frequency);
     }
 
     @Override
