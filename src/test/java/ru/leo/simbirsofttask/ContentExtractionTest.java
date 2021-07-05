@@ -3,6 +3,7 @@ package ru.leo.simbirsofttask;
 import jdk.jfr.Description;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import ru.leo.simbirsofttask.util.ContentExtraction;
 
 public class ContentExtractionTest {
 

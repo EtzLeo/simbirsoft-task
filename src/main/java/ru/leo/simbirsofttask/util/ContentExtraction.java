@@ -1,4 +1,4 @@
-package ru.leo.simbirsofttask;
+package ru.leo.simbirsofttask.util;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -34,7 +34,7 @@ public class ContentExtraction {
                 content += line + "\n";
             }
         } catch (IOException e) {
-            System.out.println("Ошибка: " + e.getMessage());
+            System.out.println("Ошибка при получении контента html-страницы: " + e.getMessage());
         }
         return "";
     }

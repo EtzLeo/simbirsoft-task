@@ -1,5 +1,8 @@
 package ru.leo.simbirsofttask;
 
+import ru.leo.simbirsofttask.util.ContentExtraction;
+import ru.leo.simbirsofttask.util.HtmlConverter;
+
 import java.util.Map;
 import java.util.Scanner;
 

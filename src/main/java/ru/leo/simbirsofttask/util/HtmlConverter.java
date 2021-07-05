@@ -1,4 +1,4 @@
-package ru.leo.simbirsofttask;
+package ru.leo.simbirsofttask.util;
 
 import org.jsoup.Jsoup;
 import java.util.Arrays;
