@@ -1,5 +1,6 @@
 package ru.leo.simbirsofttask;
 
+import java.util.Map;
 import java.util.Scanner;
 
 public class App {
@@ -7,6 +8,10 @@ public class App {
         Scanner scanner = new Scanner(System.in);
         String url = scanner.nextLine();
         String content = ContentExtraction.getHtmlContent(url);
-        System.out.println(content);
+
+        Map<String, Integer> statistic = HtmlConverter.getWordsStatistic(content);
+        for (String key: statistic.keySet()) {
+            System.out.println(key + " - " + statistic.get(key));
+        }
     }
 }
